@@ -6,10 +6,11 @@ export default class ProductController {
     // console.log(path.resolve());
 
     let products = ProductModel.get();
-    console.log(products);
+    res.render("products", { product: products });
+    // console.log(products);
 
-    return res.sendFile(
-      path.join(path.resolve(), "src", "views", "products.html")
-    );
+    // return res.sendFile(
+    //   path.join(path.resolve(), "src", "views", "products.html")
+    // );
   }
 }

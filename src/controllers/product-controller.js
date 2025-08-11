@@ -6,7 +6,7 @@ export default class ProductController {
     // console.log(path.resolve());
 
     let products = ProductModel.get();
-    res.render("products", { product: products });
+    res.render("products", { products: products });
     // console.log(products);
 
     // return res.sendFile(

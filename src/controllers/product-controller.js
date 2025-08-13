@@ -13,4 +13,16 @@ export default class ProductController {
     //   path.join(path.resolve(), "src", "views", "products.html")
     // );
   }
+
+  getAddForm(req, res) {
+    return res.render("new-product");
+  }
+
+  addNewProduct(req, res) {
+    // Access data from form
+    console.log(req.body);
+    let products = ProductModel.get();
+    // Send user back to products page
+    res.render("products", { products: products });
+  }
 }

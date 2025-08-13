@@ -15,6 +15,11 @@ const productController = new ProductController();
 
 server.get("/", productController.getProducts);
 
+// Create a new path for users when adding form
+server.get("/new", productController.getAddForm)
+
+server.post("/", productController.addNewProduct);
+
 server.use(express.static("src/views"));
 
 server.listen(3100);

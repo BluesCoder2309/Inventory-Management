@@ -1,9 +1,12 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import ProductController from "./src/controllers/product-controller.js";
 import path from "path";
-import ejsLayouts from "express-ejs-layouts"
+import ejsLayouts from "express-ejs-layouts";
 
 const server = express();
+
+// Parse form data
+server.use(urlencoded({ extended: true }));
 
 // setup view engine settings
 server.set("view engine", "ejs");
@@ -16,7 +19,7 @@ const productController = new ProductController();
 server.get("/", productController.getProducts);
 
 // Create a new path for users when adding form
-server.get("/new", productController.getAddForm)
+server.get("/new", productController.getAddForm);
 
 server.post("/", productController.addNewProduct);
 

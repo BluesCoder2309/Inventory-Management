@@ -7,12 +7,18 @@ export default class ProductModel {
     this.imageUrl = imageUrl;
   }
 
-  static get() {
+  static getAll() {
     return products;
   }
 
-  static add(productObj){
-    let newProduct = new ProductModel(products.length +1,productObj.name,productObj.desc,productObj.price,productObj.imageUrl)
+  static add(productObj) {
+    let newProduct = new ProductModel(
+      products.length + 1,
+      productObj.name,
+      productObj.desc,
+      productObj.price,
+      productObj.imageUrl
+    );
     products.push(newProduct);
   }
 }
